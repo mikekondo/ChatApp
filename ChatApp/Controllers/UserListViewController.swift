@@ -12,12 +12,15 @@ import FirebaseFirestore
 class UserListViewController: UIViewController {
 
     @IBOutlet weak var userListTableView: UITableView!
+    @IBOutlet weak var startChatButton: UIBarButtonItem!
 
     private var users = [User]()
+    private var seledctedUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        startChatButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +37,7 @@ class UserListViewController: UIViewController {
             snapShots?.documents.forEach({ snapShot in
                 let data = snapShot.data()
                 let user = User(dic: data)
-
+                user.uid = snapShot.documentID
                 // 自分は表示しない // snapShot.documentIDでドキュメントIDを取得できる
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 if uid == snapShot.documentID {
@@ -55,9 +58,24 @@ class UserListViewController: UIViewController {
 
 
     @IBAction func didStartChatButton(_ sender: Any) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let partnerUid = self.seledctedUser?.uid else { return }
+        let members = [uid, partnerUid]
+        let docData = ["members": members,"latestMessageId": "",
+                       "createdAt": Timestamp()] as [String : Any]
 
+        Firestore.firestore().collection("ChatRooms").document().setData(docData) { error in
+            if let error = error {
+                print("ChatRoom情報の保存に失敗しました",error)
+            }
+            print("ChatRoom情報の保存に成功しました")
+            self.dismiss(animated: true)
+        }
     }
 
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -73,5 +91,11 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        startChatButton.isEnabled = true
+        let user = users[indexPath.row]
+        self.seledctedUser = user
     }
 }

@@ -26,6 +26,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pvb-C8-arv">
+                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="D2l-Vx-LFT">
+                            <connections>
+                                <action selector="didTapCloseButton:" destination="Y6W-OH-hqX" id="pDC-XF-kBE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="会話を開始" id="XGN-XC-ElV">
                             <connections>
                                 <action selector="didStartChatButton:" destination="Y6W-OH-hqX" id="1fR-X0-zpH"/>
@@ -33,6 +38,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="startChatButton" destination="XGN-XC-ElV" id="edH-fT-w3T"/>
                         <outlet property="userListTableView" destination="hVs-mq-Sqp" id="NyL-Cj-zlD"/>
                     </connections>
                 </viewController>

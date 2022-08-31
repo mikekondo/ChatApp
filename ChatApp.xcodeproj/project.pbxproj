@@ -34,6 +34,7 @@
 		95E673D328BEF7D800A42B2A /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E673D128BEF7D800A42B2A /* UserListTableViewCell.xib */; };
 		95E673D528BEF8A700A42B2A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E673D428BEF8A700A42B2A /* UserListViewController.swift */; };
 		95E673D828BEFF8800A42B2A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 95E673D728BEFF8800A42B2A /* SDWebImage */; };
+		95E673DA28BF282A00A42B2A /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E673D928BF282A00A42B2A /* ChatRoom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		95E673D028BEF7D800A42B2A /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		95E673D128BEF7D800A42B2A /* UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
 		95E673D428BEF8A700A42B2A /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		95E673D928BF282A00A42B2A /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				951390A228BDA1AF00F711CB /* User.swift */,
+				95E673D928BF282A00A42B2A /* ChatRoom.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				95853CF928BB4D1C00099AEC /* SceneDelegate.swift in Sources */,
 				9529C3E528BC4B4600EA4314 /* SignUpViewController.swift in Sources */,
 				9529C3D828BC325500EA4314 /* ChatInputAccessoryView.swift in Sources */,
+				95E673DA28BF282A00A42B2A /* ChatRoom.swift in Sources */,
 				951390A328BDA1AF00F711CB /* User.swift in Sources */,
 				95853D1D28BB719000099AEC /* ChatRoomViewController.swift in Sources */,
 			);

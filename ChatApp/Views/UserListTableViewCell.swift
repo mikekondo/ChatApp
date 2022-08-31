@@ -17,6 +17,11 @@ class UserListTableViewCell: UITableViewCell {
             userImageView.sd_setImage(with: URL(string: user.profileImageUrl))
         }
     }
+
+    var chatroom: ChatRoom? {
+        didSet {
+        }
+    }
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
 

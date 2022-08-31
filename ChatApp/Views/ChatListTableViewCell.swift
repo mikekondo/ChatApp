@@ -6,17 +6,27 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ChatListTableViewCell: UITableViewCell {
 
-    var user: User? {
+//    var user: User? {
+//        didSet {
+//            guard let user = user else { return }
+//            partnerLabel.text = user.userName
+//            // userImageView.image = user?.profileImageUrl
+//            dateLabel.text = dateFormatterForDateLabel(date: user.createdAt.dateValue())
+//            // dateLabel.text = user?.createdAt.dateValue().description
+//            latestMessageLabel.text = user.email
+//        }
+//    }
+
+    var chatroom: ChatRoom? {
         didSet {
-            guard let user = user else { return }
-            partnerLabel.text = user.userName
-            // userImageView.image = user?.profileImageUrl
-            dateLabel.text = dateFormatterForDateLabel(date: user.createdAt.dateValue())
-            // dateLabel.text = user?.createdAt.dateValue().description
-            latestMessageLabel.text = user.email
+            guard let chatroom = chatroom else { return }
+            partnerLabel.text = chatroom.partnerUser?.userName
+            userImageView.sd_setImage(with: URL(string: chatroom.partnerUser?.profileImageUrl ?? ""))
+            dateLabel.text = dateFormatterForDateLabel(date: chatroom.createdAt.dateValue())
         }
     }
 
@@ -37,7 +47,7 @@ class ChatListTableViewCell: UITableViewCell {
     private func dateFormatterForDateLabel(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
-        formatter.timeStyle = .short
+        formatter.timeStyle = .none
         formatter.locale = Locale(identifier: "ja_JP")
         return formatter.string(from: date)
     }
