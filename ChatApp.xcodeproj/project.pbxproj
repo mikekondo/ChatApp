@@ -29,6 +29,11 @@
 		95853D1D28BB719000099AEC /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95853D1C28BB719000099AEC /* ChatRoomViewController.swift */; };
 		95853D2028BB72FE00099AEC /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95853D1E28BB72FE00099AEC /* ChatRoomTableViewCell.swift */; };
 		95853D2128BB72FE00099AEC /* ChatRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95853D1F28BB72FE00099AEC /* ChatRoomTableViewCell.xib */; };
+		95E673CF28BEF74F00A42B2A /* UserList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E673CE28BEF74F00A42B2A /* UserList.storyboard */; };
+		95E673D228BEF7D800A42B2A /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E673D028BEF7D800A42B2A /* UserListTableViewCell.swift */; };
+		95E673D328BEF7D800A42B2A /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E673D128BEF7D800A42B2A /* UserListTableViewCell.xib */; };
+		95E673D528BEF8A700A42B2A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E673D428BEF8A700A42B2A /* UserListViewController.swift */; };
+		95E673D828BEFF8800A42B2A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 95E673D728BEFF8800A42B2A /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +58,10 @@
 		95853D1C28BB719000099AEC /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		95853D1E28BB72FE00099AEC /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
 		95853D1F28BB72FE00099AEC /* ChatRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomTableViewCell.xib; sourceTree = "<group>"; };
+		95E673CE28BEF74F00A42B2A /* UserList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserList.storyboard; sourceTree = "<group>"; };
+		95E673D028BEF7D800A42B2A /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		95E673D128BEF7D800A42B2A /* UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
+		95E673D428BEF8A700A42B2A /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +71,7 @@
 			files = (
 				9529C3DB28BC3EBA00EA4314 /* FirebaseAuth in Frameworks */,
 				9529C3DD28BC3EBA00EA4314 /* FirebaseFirestore in Frameworks */,
+				95E673D828BEFF8800A42B2A /* SDWebImage in Frameworks */,
 				9529C3DF28BC3EBA00EA4314 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +93,7 @@
 				95853D1028BB4F4600099AEC /* ChatListTableViewCell.xib */,
 				95853D1F28BB72FE00099AEC /* ChatRoomTableViewCell.xib */,
 				9529C3D528BC300500EA4314 /* ChatInputAccessoryView.xib */,
+				95E673D128BEF7D800A42B2A /* UserListTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -125,6 +136,7 @@
 		95853D0E28BB4EF900099AEC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				95E673D028BEF7D800A42B2A /* UserListTableViewCell.swift */,
 				95853D0F28BB4F4600099AEC /* ChatListTableViewCell.swift */,
 				95853D1E28BB72FE00099AEC /* ChatRoomTableViewCell.swift */,
 				9529C3D728BC325500EA4314 /* ChatInputAccessoryView.swift */,
@@ -138,6 +150,7 @@
 				95853D1C28BB719000099AEC /* ChatRoomViewController.swift */,
 				95853D0C28BB4DAC00099AEC /* ChatListViewController.swift */,
 				9529C3E428BC4B4600EA4314 /* SignUpViewController.swift */,
+				95E673D428BEF8A700A42B2A /* UserListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 				95853D0A28BB4D4C00099AEC /* ChatList.storyboard */,
 				95853D1A28BB712800099AEC /* ChatRoom.storyboard */,
 				9529C3E228BC4A2800EA4314 /* SignUp.storyboard */,
+				95E673CE28BEF74F00A42B2A /* UserList.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -180,6 +194,7 @@
 				9529C3DA28BC3EBA00EA4314 /* FirebaseAuth */,
 				9529C3DC28BC3EBA00EA4314 /* FirebaseFirestore */,
 				9529C3DE28BC3EBA00EA4314 /* FirebaseStorage */,
+				95E673D728BEFF8800A42B2A /* SDWebImage */,
 			);
 			productName = ChatApp;
 			productReference = 95853CF328BB4D1C00099AEC /* ChatApp.app */;
@@ -211,6 +226,7 @@
 			mainGroup = 95853CEA28BB4D1C00099AEC;
 			packageReferences = (
 				9529C3D928BC3EBA00EA4314 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				95E673D628BEFF8800A42B2A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 95853CF428BB4D1C00099AEC /* Products */;
 			projectDirPath = "";
@@ -227,8 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				95853D1228BB4F4600099AEC /* ChatListTableViewCell.xib in Resources */,
+				95E673D328BEF7D800A42B2A /* UserListTableViewCell.xib in Resources */,
 				95853D0328BB4D1D00099AEC /* LaunchScreen.storyboard in Resources */,
 				9529C3E328BC4A2800EA4314 /* SignUp.storyboard in Resources */,
+				95E673CF28BEF74F00A42B2A /* UserList.storyboard in Resources */,
 				9529C3D628BC300500EA4314 /* ChatInputAccessoryView.xib in Resources */,
 				95853D0028BB4D1D00099AEC /* Assets.xcassets in Resources */,
 				95853D0B28BB4D4C00099AEC /* ChatList.storyboard in Resources */,
@@ -248,7 +266,9 @@
 				95853D2028BB72FE00099AEC /* ChatRoomTableViewCell.swift in Sources */,
 				95853D1128BB4F4600099AEC /* ChatListTableViewCell.swift in Sources */,
 				95853D1928BB6DDB00099AEC /* UIColor-Extension.swift in Sources */,
+				95E673D228BEF7D800A42B2A /* UserListTableViewCell.swift in Sources */,
 				95853CF728BB4D1C00099AEC /* AppDelegate.swift in Sources */,
+				95E673D528BEF8A700A42B2A /* UserListViewController.swift in Sources */,
 				95853D0D28BB4DAC00099AEC /* ChatListViewController.swift in Sources */,
 				95853CF928BB4D1C00099AEC /* SceneDelegate.swift in Sources */,
 				9529C3E528BC4B4600EA4314 /* SignUpViewController.swift in Sources */,
@@ -472,6 +492,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		95E673D628BEFF8800A42B2A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -489,6 +517,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9529C3D928BC3EBA00EA4314 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		95E673D728BEFF8800A42B2A /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95E673D628BEFF8800A42B2A /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

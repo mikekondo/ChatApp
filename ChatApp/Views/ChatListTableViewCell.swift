@@ -11,10 +11,12 @@ class ChatListTableViewCell: UITableViewCell {
 
     var user: User? {
         didSet {
-            partnerLabel.text = user?.userName
+            guard let user = user else { return }
+            partnerLabel.text = user.userName
             // userImageView.image = user?.profileImageUrl
-            dateLabel.text = user?.createdAt.dateValue().description
-            latestMessageLabel.text = user?.email
+            dateLabel.text = dateFormatterForDateLabel(date: user.createdAt.dateValue())
+            // dateLabel.text = user?.createdAt.dateValue().description
+            latestMessageLabel.text = user.email
         }
     }
 
@@ -29,7 +31,15 @@ class ChatListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // 円形にする
-        userImageView.layer.cornerRadius = userImageView.frame.height/2
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
+    }
+
+    private func dateFormatterForDateLabel(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+        return formatter.string(from: date)
     }
     
 }
