@@ -10,17 +10,6 @@ import SDWebImage
 
 class ChatListTableViewCell: UITableViewCell {
 
-//    var user: User? {
-//        didSet {
-//            guard let user = user else { return }
-//            partnerLabel.text = user.userName
-//            // userImageView.image = user?.profileImageUrl
-//            dateLabel.text = dateFormatterForDateLabel(date: user.createdAt.dateValue())
-//            // dateLabel.text = user?.createdAt.dateValue().description
-//            latestMessageLabel.text = user.email
-//        }
-//    }
-
     var chatroom: ChatRoom? {
         didSet {
             guard let chatroom = chatroom else { return }

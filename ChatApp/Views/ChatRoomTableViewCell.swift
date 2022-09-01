@@ -9,6 +9,15 @@ import UIKit
 
 class ChatRoomTableViewCell: UITableViewCell {
 
+    var message: Message? {
+        didSet {
+            guard let message = message else { return }
+            messageTextView.text = message.message
+            dateLabel.text = dateFormatterForDateLabel(date: message.createdAt.dateValue())
+            // userImageView.image =
+        }
+    }
+
     static let identifier = "ChatRoomCell"
     static let nibName = "ChatRoomTableViewCell"
 
@@ -22,7 +31,6 @@ class ChatRoomTableViewCell: UITableViewCell {
         backgroundColor = .clear
         userImageView.layer.cornerRadius = userImageView.frame.height/2
         messageTextView.layer.cornerRadius = 15
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,8 +45,11 @@ class ChatRoomTableViewCell: UITableViewCell {
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
     }
 
-    func configure(){
-        
+    private func dateFormatterForDateLabel(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+        return formatter.string(from: date)
     }
-    
 }
