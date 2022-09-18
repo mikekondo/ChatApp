@@ -26,6 +26,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y1l-EH-ro6">
+                        <barButtonItem key="leftBarButtonItem" title="ログアウト" id="xME-gg-O27">
+                            <connections>
+                                <action selector="didTapLogoutButton:" destination="Y6W-OH-hqX" id="ToB-RY-rS9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="＋" id="xfO-ip-afQ">
                             <connections>
                                 <action selector="didTapNewChatButton:" destination="Y6W-OH-hqX" id="H9L-26-b19"/>

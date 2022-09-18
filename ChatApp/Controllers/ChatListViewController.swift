@@ -13,6 +13,7 @@ class ChatListViewController: UIViewController {
     @IBOutlet weak var chatListTableView: UITableView!
 
     private var chatrooms = [ChatRoom]()
+    private var chatRoomListener: ListenerRegistration? // fetchChatRoomsInfoFromFirestoreが二重で呼ばれることを防ぐ
 
     private var user: User? {
         didSet {
@@ -25,11 +26,15 @@ class ChatListViewController: UIViewController {
         setupChatListTableView()
         setupNavigationBar()
         confirmLoggedInUser()
-        fetchLoginUserInfo()
         fetchChatRoomsInfoFromFirestore()
     }
 
-    @IBAction func didTapNewChatButton(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchLoginUserInfo()
+    }
+
+    @IBAction private func didTapNewChatButton(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "UserList", bundle: nil)
         let userListViewController = storyboard.instantiateViewController(withIdentifier: "UserListViewController")
         let nav = UINavigationController(rootViewController: userListViewController)
@@ -37,8 +42,22 @@ class ChatListViewController: UIViewController {
         self.present(nav, animated: true,completion: nil)
     }
 
-    private func fetchChatRoomsInfoFromFirestore() {
-        Firestore.firestore().collection("ChatRooms")
+    @IBAction private func didTapLogoutButton(_ sender: Any) {
+        do{
+            try Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+            let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+            let nav = UINavigationController(rootViewController: signUpViewController)
+            self.present(nav,animated: true,completion: nil)
+        }catch{
+            print("ログアウトに失敗しました",error)
+        }
+    }
+    func fetchChatRoomsInfoFromFirestore() {
+        chatRoomListener?.remove()
+        chatrooms.removeAll()
+        chatListTableView.reloadData()
+        chatRoomListener = Firestore.firestore().collection("ChatRooms")
             .addSnapshotListener { snapShots, error in
                 if let error = error {
                     print("ChatRoom情報の取得に失敗",error)
@@ -63,6 +82,12 @@ class ChatListViewController: UIViewController {
         let chatroom = ChatRoom(dic: data)
         chatroom.documentId = documentChange.document.documentID
         guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        // membersにuidが含まれていたらisContainはtrueになる、含まれていないならfalseになる
+        let isContain = chatroom.members.contains(uid)
+        // 含まれてないならなにもせずリターン
+        if !isContain { return }
+
         chatroom.members.forEach { memberUid in
             if memberUid != uid{
                 Firestore.firestore().collection("Users").document(memberUid).getDocument { snapShot, error in
@@ -86,8 +111,9 @@ class ChatListViewController: UIViewController {
         if Auth.auth().currentUser?.uid == nil {
             let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
             let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-            signUpViewController.modalPresentationStyle = .fullScreen
-            self.present(signUpViewController, animated: true, completion: nil)
+            let nav = UINavigationController(rootViewController: signUpViewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
         }
     }
 

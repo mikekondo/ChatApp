@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="418" height="134"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="メッセージ" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lS6-wq-Doa">
+                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="メッセージ" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lS6-wq-Doa">
                         <rect key="frame" x="90" y="25" width="259" height="84"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -28,9 +28,8 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAS-ZR-anV">
-                        <rect key="frame" x="370.5" y="100" width="38.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="370.5" y="101" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vince_carter" translatesAutoresizingMaskIntoConstraints="NO" id="SkD-TF-oP6">
@@ -41,22 +40,45 @@
                             <constraint firstAttribute="width" constant="62" id="kyO-pb-4k0"/>
                         </constraints>
                     </imageView>
+                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rAf-fX-aJ4">
+                        <rect key="frame" x="173" y="25" width="225" height="84"/>
+                        <color key="backgroundColor" red="0.60392156862745094" green="0.8784313725490196" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="225" id="M1d-aX-WbX"/>
+                        </constraints>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpE-uC-1l4">
+                        <rect key="frame" x="129" y="92" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="lS6-wq-Doa" firstAttribute="leading" secondItem="SkD-TF-oP6" secondAttribute="trailing" constant="8" id="ABJ-TE-3zb"/>
                     <constraint firstItem="lS6-wq-Doa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="J06-Qh-GMW"/>
+                    <constraint firstAttribute="trailing" secondItem="rAf-fX-aJ4" secondAttribute="trailing" constant="20" id="P29-an-cSF"/>
+                    <constraint firstItem="rAf-fX-aJ4" firstAttribute="leading" secondItem="wpE-uC-1l4" secondAttribute="trailing" constant="8" id="Qj9-xb-vyB"/>
                     <constraint firstItem="dAS-ZR-anV" firstAttribute="leading" secondItem="lS6-wq-Doa" secondAttribute="trailing" constant="21.5" id="RSq-vi-TJD"/>
                     <constraint firstAttribute="bottom" secondItem="SkD-TF-oP6" secondAttribute="bottom" constant="36" id="VMo-wb-PGR"/>
                     <constraint firstItem="SkD-TF-oP6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Xix-be-kBY"/>
                     <constraint firstAttribute="bottom" secondItem="lS6-wq-Doa" secondAttribute="bottom" constant="25" id="Zu6-f1-3Pg"/>
                     <constraint firstItem="SkD-TF-oP6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="kjE-eZ-mkD"/>
+                    <constraint firstItem="rAf-fX-aJ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="rX8-EN-ysA"/>
                     <constraint firstAttribute="bottom" secondItem="dAS-ZR-anV" secondAttribute="bottom" constant="16" id="s2l-RF-7IR"/>
+                    <constraint firstAttribute="bottom" secondItem="wpE-uC-1l4" secondAttribute="bottom" constant="25" id="xGd-iS-3uc"/>
+                    <constraint firstAttribute="bottom" secondItem="rAf-fX-aJ4" secondAttribute="bottom" constant="25" id="xh6-e8-uJw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dateLabel" destination="dAS-ZR-anV" id="zKE-mg-V4I"/>
-                <outlet property="messageTextView" destination="lS6-wq-Doa" id="r8A-Ei-DsB"/>
+                <outlet property="myDateLabel" destination="wpE-uC-1l4" id="rAW-Ea-J3b"/>
+                <outlet property="myMessageTextView" destination="rAf-fX-aJ4" id="S3N-Zt-kkM"/>
+                <outlet property="partnerDateLabel" destination="dAS-ZR-anV" id="zKE-mg-V4I"/>
+                <outlet property="partnerMessageTextView" destination="lS6-wq-Doa" id="r8A-Ei-DsB"/>
                 <outlet property="userImageView" destination="SkD-TF-oP6" id="pyU-wl-VVo"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="86.383928571428569"/>

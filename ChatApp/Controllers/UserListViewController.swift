@@ -15,7 +15,7 @@ class UserListViewController: UIViewController {
     @IBOutlet weak var startChatButton: UIBarButtonItem!
 
     private var users = [User]()
-    private var seledctedUser: User?
+    private var selectedUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,7 @@ class UserListViewController: UIViewController {
 
     @IBAction func didStartChatButton(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        guard let partnerUid = self.seledctedUser?.uid else { return }
+        guard let partnerUid = self.selectedUser?.uid else { return }
         let members = [uid, partnerUid]
         let docData = ["members": members,"latestMessageId": "",
                        "createdAt": Timestamp()] as [String : Any]
@@ -96,6 +96,6 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         startChatButton.isEnabled = true
         let user = users[indexPath.row]
-        self.seledctedUser = user
+        self.selectedUser = user
     }
 }

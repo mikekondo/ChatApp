@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SDWebImage
 
 class ChatRoomTableViewCell: UITableViewCell {
 
     var message: Message? {
         didSet {
-            guard let message = message else { return }
-            messageTextView.text = message.message
-            dateLabel.text = dateFormatterForDateLabel(date: message.createdAt.dateValue())
-            // userImageView.image =
+//            guard let message = message else { return }
+//            partnerMessageTextView.text = message.message
+//            partnerDateLabel.text = dateFormatterForDateLabel(date: message.createdAt.dateValue())
         }
     }
 
@@ -22,21 +23,50 @@ class ChatRoomTableViewCell: UITableViewCell {
     static let nibName = "ChatRoomTableViewCell"
 
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var partnerMessageTextView: UITextView!
+    @IBOutlet weak var partnerDateLabel: UILabel!
+    @IBOutlet weak var myMessageTextView: UITextView!
+    @IBOutlet weak var myDateLabel: UILabel!
 
 
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
         userImageView.layer.cornerRadius = userImageView.frame.height/2
-        messageTextView.layer.cornerRadius = 15
+        partnerMessageTextView.layer.cornerRadius = 15
+        myMessageTextView.layer.cornerRadius = 15
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        checkWhichUserMessage()
+    }
 
-        // Configure the view for the selected state
+    private func checkWhichUserMessage() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        if uid == message?.uid {
+            partnerMessageTextView.isHidden = true
+            partnerDateLabel.isHidden = true
+            userImageView.isHidden = true
+            myMessageTextView.isHidden = false
+            myDateLabel.isHidden = false
+
+            guard let message = message else { return }
+            myMessageTextView.text = message.message
+            myDateLabel.text = dateFormatterForDateLabel(date: message.createdAt.dateValue())
+        }else{
+            partnerMessageTextView.isHidden = false
+            partnerDateLabel.isHidden = false
+            userImageView.isHidden = false
+            myMessageTextView.isHidden = true
+            myDateLabel.isHidden = true
+
+
+            guard let message = message else { return }
+            partnerMessageTextView.text = message.message
+            partnerDateLabel.text = dateFormatterForDateLabel(date: message.createdAt.dateValue())
+            userImageView.sd_setImage(with: URL(string: message.partnerUser?.profileImageUrl ?? ""))
+        }
     }
 
     private func estimateFrameForTextView(text: String) -> CGRect {

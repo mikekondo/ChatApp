@@ -15,6 +15,8 @@
 		9529C3DF28BC3EBA00EA4314 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9529C3DE28BC3EBA00EA4314 /* FirebaseStorage */; };
 		9529C3E328BC4A2800EA4314 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9529C3E228BC4A2800EA4314 /* SignUp.storyboard */; };
 		9529C3E528BC4B4600EA4314 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529C3E428BC4B4600EA4314 /* SignUpViewController.swift */; };
+		955135CF28D698BC00935FBD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955135CE28D698BC00935FBD /* Login.storyboard */; };
+		955135D128D699CF00935FBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955135D028D699CF00935FBD /* LoginViewController.swift */; };
 		95853CF728BB4D1C00099AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95853CF628BB4D1C00099AEC /* AppDelegate.swift */; };
 		95853CF928BB4D1C00099AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95853CF828BB4D1C00099AEC /* SceneDelegate.swift */; };
 		95853D0028BB4D1D00099AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95853CFF28BB4D1D00099AEC /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		9529C3D728BC325500EA4314 /* ChatInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputAccessoryView.swift; sourceTree = "<group>"; };
 		9529C3E228BC4A2800EA4314 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		9529C3E428BC4B4600EA4314 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		955135CE28D698BC00935FBD /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		955135D028D699CF00935FBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95853CF328BB4D1C00099AEC /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95853CF628BB4D1C00099AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95853CF828BB4D1C00099AEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		95853D1528BB6D3400099AEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				955135D028D699CF00935FBD /* LoginViewController.swift */,
 				95853D1C28BB719000099AEC /* ChatRoomViewController.swift */,
 				95853D0C28BB4DAC00099AEC /* ChatListViewController.swift */,
 				9529C3E428BC4B4600EA4314 /* SignUpViewController.swift */,
@@ -168,6 +173,7 @@
 				95853D1A28BB712800099AEC /* ChatRoom.storyboard */,
 				9529C3E228BC4A2800EA4314 /* SignUp.storyboard */,
 				95E673CE28BEF74F00A42B2A /* UserList.storyboard */,
+				955135CE28D698BC00935FBD /* Login.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				9529C3D628BC300500EA4314 /* ChatInputAccessoryView.xib in Resources */,
 				95853D0028BB4D1D00099AEC /* Assets.xcassets in Resources */,
 				95853D0B28BB4D4C00099AEC /* ChatList.storyboard in Resources */,
+				955135CF28D698BC00935FBD /* Login.storyboard in Resources */,
 				95853D1428BB516D00099AEC /* GoogleService-Info.plist in Resources */,
 				95853D2128BB72FE00099AEC /* ChatRoomTableViewCell.xib in Resources */,
 				95853D1B28BB712800099AEC /* ChatRoom.storyboard in Resources */,
@@ -272,6 +279,7 @@
 				95853D2028BB72FE00099AEC /* ChatRoomTableViewCell.swift in Sources */,
 				95853D1128BB4F4600099AEC /* ChatListTableViewCell.swift in Sources */,
 				95853D1928BB6DDB00099AEC /* UIColor-Extension.swift in Sources */,
+				955135D128D699CF00935FBD /* LoginViewController.swift in Sources */,
 				95E673D228BEF7D800A42B2A /* UserListTableViewCell.swift in Sources */,
 				95853CF728BB4D1C00099AEC /* AppDelegate.swift in Sources */,
 				95E673D528BEF8A700A42B2A /* UserListViewController.swift in Sources */,
@@ -426,6 +434,7 @@
 				INFOPLIST_FILE = ChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -453,6 +462,7 @@
 				INFOPLIST_FILE = ChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

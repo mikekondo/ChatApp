@@ -36,6 +36,11 @@ class SignUpViewController: UIViewController {
         userNameTextField.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = true
+    }
+
     @IBAction func didTapProfileImageButton(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -65,6 +70,12 @@ class SignUpViewController: UIViewController {
                 self.createUserToFirestore(profileImageUrl: urlString)
             }
         }
+    }
+
+    @IBAction func didTapAlreadyHaveAccountButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.navigationController?.pushViewController(loginViewController, animated: true)
     }
 
     private func createUserToFirestore(profileImageUrl: String){
