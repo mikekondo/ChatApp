@@ -36,7 +36,7 @@ class UserListViewController: UIViewController {
             }
             snapShots?.documents.forEach({ snapShot in
                 let data = snapShot.data()
-                let user = User(dic: data)
+                var user = User(dic: data)
                 user.uid = snapShot.documentID
                 // 自分は表示しない // snapShot.documentIDでドキュメントIDを取得できる
                 guard let uid = Auth.auth().currentUser?.uid else { return }

@@ -7,6 +7,8 @@
 
 import UIKit
 
+import UIKit
+
 protocol ChatInputAccessoryViewDelegate: class {
     func tappedSendButton(text: String)
 }

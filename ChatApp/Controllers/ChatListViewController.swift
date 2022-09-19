@@ -92,7 +92,7 @@ class ChatListViewController: UIViewController {
                         return
                     }
                     guard let data = snapShot?.data() else { return }
-                    let user = User(dic: data)
+                    var user = User(dic: data)
                     user.uid = memberUid
                     chatroom.partnerUser = user
                     self.chatrooms.append(chatroom)

@@ -7,8 +7,10 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
-class User {
+struct User: Codable {
+    public var id = UUID().uuidString
     let email: String
     let userName: String
     let createdAt: Timestamp

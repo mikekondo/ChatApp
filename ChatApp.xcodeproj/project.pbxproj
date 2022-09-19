@@ -17,6 +17,8 @@
 		9529C3E528BC4B4600EA4314 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529C3E428BC4B4600EA4314 /* SignUpViewController.swift */; };
 		955135CF28D698BC00935FBD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955135CE28D698BC00935FBD /* Login.storyboard */; };
 		955135D128D699CF00935FBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955135D028D699CF00935FBD /* LoginViewController.swift */; };
+		9567A9AD28D845D500D60F78 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9567A9AC28D845D500D60F78 /* Firebase-Extension.swift */; };
+		9567A9AF28D847BC00D60F78 /* StorageImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9567A9AE28D847BC00D60F78 /* StorageImage.swift */; };
 		95853CF728BB4D1C00099AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95853CF628BB4D1C00099AEC /* AppDelegate.swift */; };
 		95853CF928BB4D1C00099AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95853CF828BB4D1C00099AEC /* SceneDelegate.swift */; };
 		95853D0028BB4D1D00099AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95853CFF28BB4D1D00099AEC /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		9529C3E428BC4B4600EA4314 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		955135CE28D698BC00935FBD /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		955135D028D699CF00935FBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9567A9AC28D845D500D60F78 /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
+		9567A9AE28D847BC00D60F78 /* StorageImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageImage.swift; sourceTree = "<group>"; };
 		95853CF328BB4D1C00099AEC /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95853CF628BB4D1C00099AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95853CF828BB4D1C00099AEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				951390A228BDA1AF00F711CB /* User.swift */,
 				95C3F3EE28C02C1700509BA7 /* Message.swift */,
 				95E673D928BF282A00A42B2A /* ChatRoom.swift */,
+				9567A9AE28D847BC00D60F78 /* StorageImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				95853D1828BB6DDB00099AEC /* UIColor-Extension.swift */,
+				9567A9AC28D845D500D60F78 /* Firebase-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +304,8 @@
 				95E673DA28BF282A00A42B2A /* ChatRoom.swift in Sources */,
 				951390A328BDA1AF00F711CB /* User.swift in Sources */,
 				95853D1D28BB719000099AEC /* ChatRoomViewController.swift in Sources */,
+				9567A9AD28D845D500D60F78 /* Firebase-Extension.swift in Sources */,
+				9567A9AF28D847BC00D60F78 /* StorageImage.swift in Sources */,
 				95C3F3EF28C02C1700509BA7 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

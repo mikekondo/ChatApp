@@ -21,6 +21,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var alreadyHaveAccountButton: UIButton!
 
+    let storageImage = StorageImage()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,27 +54,17 @@ class SignUpViewController: UIViewController {
     @IBAction func didTapRegisterButton(_ sender: Any) {
         guard let image = profileImageButton.imageView?.image else { return }
         guard let uploadImage = image.jpegData(compressionQuality: 0.3) else { return }
-
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let userName = userNameTextField.text else { return }
         HUD.show(.progress)
-
-        let fileName = NSUUID().uuidString
-
-        let storageRef = Storage.storage().reference().child("profile_image").child(fileName)
-        storageRef.putData(uploadImage) { metadata, error in
-            if let error = error {
-                print("Firestorageへの情報の保存に失敗",error)
+        Task{
+            do{
+                try await storageImage.registerUserToFirestore(profileImage: uploadImage, userName: userName, email: email, password: password)
                 HUD.hide()
-                return
-            }
-            print("Firestorageへの情報の保存に成功")
-            storageRef.downloadURL { url, error in
-                if let error = error {
-                    print("Firestorageからのダウンロードに失敗しました",error)
-                    HUD.hide()
-                    return
-                }
-                guard let urlString = url?.absoluteString else { return }
-                self.createUserToFirestore(profileImageUrl: urlString)
+                self.dismiss(animated: true)
+            }catch {
+                print("ユーザ情報の登録に失敗",error)
             }
         }
     }
