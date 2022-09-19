@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
+import PKHUD
 
 class SignUpViewController: UIViewController {
 
@@ -52,18 +53,22 @@ class SignUpViewController: UIViewController {
         guard let image = profileImageButton.imageView?.image else { return }
         guard let uploadImage = image.jpegData(compressionQuality: 0.3) else { return }
 
+        HUD.show(.progress)
+
         let fileName = NSUUID().uuidString
 
         let storageRef = Storage.storage().reference().child("profile_image").child(fileName)
         storageRef.putData(uploadImage) { metadata, error in
             if let error = error {
                 print("Firestorageへの情報の保存に失敗",error)
+                HUD.hide()
                 return
             }
             print("Firestorageへの情報の保存に成功")
             storageRef.downloadURL { url, error in
                 if let error = error {
                     print("Firestorageからのダウンロードに失敗しました",error)
+                    HUD.hide()
                     return
                 }
                 guard let urlString = url?.absoluteString else { return }
@@ -84,6 +89,7 @@ class SignUpViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error{
                 print("認証情報の保存に失敗しました",error)
+                HUD.hide()
                 return
             }
             print("認証情報の保存に成功しました")
@@ -95,13 +101,19 @@ class SignUpViewController: UIViewController {
                            "profileImageUrl": profileImageUrl] as [String : Any]
             Firestore.firestore().collection("Users").document(uid).setData(docData) { error in
                 if let error = error {
-                  print("Firestoreへの情報の保存に失敗",error)
-                  return
+                    print("Firestoreへの情報の保存に失敗",error)
+                    HUD.hide()
+                    return
                 }
                 print("Firestoreへの情報の保存に成功")
+                HUD.hide()
                 self.dismiss(animated: true,completion: nil)
             }
         }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 
 }

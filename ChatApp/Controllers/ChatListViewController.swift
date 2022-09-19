@@ -15,11 +15,7 @@ class ChatListViewController: UIViewController {
     private var chatrooms = [ChatRoom]()
     private var chatRoomListener: ListenerRegistration? // fetchChatRoomsInfoFromFirestoreが二重で呼ばれることを防ぐ
 
-    private var user: User? {
-        didSet {
-            navigationItem.title = user?.userName
-        }
-    }
+    private var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +52,14 @@ class ChatListViewController: UIViewController {
     func fetchChatRoomsInfoFromFirestore() {
         chatRoomListener?.remove()
         chatrooms.removeAll()
-        chatListTableView.reloadData()
+        print("chatroomsのカウント",chatrooms.count)
         chatRoomListener = Firestore.firestore().collection("ChatRooms")
             .addSnapshotListener { snapShots, error in
                 if let error = error {
                     print("ChatRoom情報の取得に失敗",error)
                     return
                 }
-                // 新しくきた情報を受け取る方法
+                // 新しくきた情報を受け取る（※最初に実行した時点では、実行したクエリに該当するデータの全てが取得されます）
                 snapShots?.documentChanges.forEach({ documentChange in
                     switch documentChange.type {
                     case .added:
@@ -89,7 +85,7 @@ class ChatListViewController: UIViewController {
         if !isContain { return }
 
         chatroom.members.forEach { memberUid in
-            if memberUid != uid{
+            if memberUid != uid {
                 Firestore.firestore().collection("Users").document(memberUid).getDocument { snapShot, error in
                     if let error = error {
                         print("ユーザ情報の取得に失敗しました",error)
@@ -97,7 +93,7 @@ class ChatListViewController: UIViewController {
                     }
                     guard let data = snapShot?.data() else { return }
                     let user = User(dic: data)
-                    user.uid = documentChange.document.documentID
+                    user.uid = memberUid
                     chatroom.partnerUser = user
                     self.chatrooms.append(chatroom)
                     self.chatListTableView.reloadData()
@@ -141,6 +137,7 @@ class ChatListViewController: UIViewController {
             guard let snapShot = snapShot else { return }
             guard let data = snapShot.data() else { return }
             let user = User(dic: data)
+            self.navigationItem.title = user.userName
             self.user = user
         }
     }

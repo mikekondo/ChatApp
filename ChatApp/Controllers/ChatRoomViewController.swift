@@ -12,6 +12,7 @@ class ChatRoomViewController: UIViewController {
 
     @IBOutlet weak var chatRoomTableView: UITableView!
     private var messages = [Message]()
+    // ChatListViewControllerから受け取ってる
     var chatRoom: ChatRoom?
     var user: User?
 
@@ -41,7 +42,7 @@ class ChatRoomViewController: UIViewController {
 
     private func fetchMessages() {
         guard let chatroomDocId = chatRoom?.documentId else { return }
-        Firestore.firestore().collection("ChatRooms").document(chatroomDocId).collection("messages").addSnapshotListener { snapShots, error in
+        Firestore.firestore().collection("ChatRooms").document(chatroomDocId).collection("messages").order(by: "createdAt",descending: false).addSnapshotListener { snapShots, error in
             if let error = error {
                 print("メッセージ情報の取得に失敗しました",error)
                 return
@@ -71,6 +72,9 @@ class ChatRoomViewController: UIViewController {
         chatRoomTableView.dataSource = self
         chatRoomTableView.register(UINib(nibName: ChatRoomTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: ChatRoomTableViewCell.identifier)
         chatRoomTableView.backgroundColor = .rgb(red: 118, green: 140, blue: 180)
+        chatRoomTableView.contentInset = .init(top: 60,left: 0, bottom: 60, right: 0) // tableViewの余白設定
+        chatRoomTableView.scrollIndicatorInsets = .init(top: 60,left: 0, bottom: 60, right: 0) // tableViewの余白設定
+        chatRoomTableView.keyboardDismissMode = .interactive // キーボードを閉じる処理
     }
 
 }

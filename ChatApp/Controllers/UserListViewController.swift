@@ -43,7 +43,6 @@ class UserListViewController: UIViewController {
                 if uid == snapShot.documentID {
                     return
                 }
-
                 self.users.append(user)
                 self.userListTableView.reloadData()
             })

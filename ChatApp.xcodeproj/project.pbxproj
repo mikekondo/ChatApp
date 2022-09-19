@@ -38,6 +38,8 @@
 		95E673D528BEF8A700A42B2A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E673D428BEF8A700A42B2A /* UserListViewController.swift */; };
 		95E673D828BEFF8800A42B2A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 95E673D728BEFF8800A42B2A /* SDWebImage */; };
 		95E673DA28BF282A00A42B2A /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E673D928BF282A00A42B2A /* ChatRoom.swift */; };
+		95F9368028D7FD03000764FD /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 95F9367F28D7FD03000764FD /* PKHUD */; };
+		95F9368328D7FD3D000764FD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 95F9368228D7FD3D000764FD /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +82,9 @@
 				9529C3DB28BC3EBA00EA4314 /* FirebaseAuth in Frameworks */,
 				9529C3DD28BC3EBA00EA4314 /* FirebaseFirestore in Frameworks */,
 				95E673D828BEFF8800A42B2A /* SDWebImage in Frameworks */,
+				95F9368028D7FD03000764FD /* PKHUD in Frameworks */,
 				9529C3DF28BC3EBA00EA4314 /* FirebaseStorage in Frameworks */,
+				95F9368328D7FD3D000764FD /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +211,8 @@
 				9529C3DC28BC3EBA00EA4314 /* FirebaseFirestore */,
 				9529C3DE28BC3EBA00EA4314 /* FirebaseStorage */,
 				95E673D728BEFF8800A42B2A /* SDWebImage */,
+				95F9367F28D7FD03000764FD /* PKHUD */,
+				95F9368228D7FD3D000764FD /* FirebaseFirestoreSwift */,
 			);
 			productName = ChatApp;
 			productReference = 95853CF328BB4D1C00099AEC /* ChatApp.app */;
@@ -239,6 +245,8 @@
 			packageReferences = (
 				9529C3D928BC3EBA00EA4314 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				95E673D628BEFF8800A42B2A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				95F9367E28D7FD03000764FD /* XCRemoteSwiftPackageReference "PKHUD" */,
+				95F9368128D7FD3D000764FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 95853CF428BB4D1C00099AEC /* Products */;
 			projectDirPath = "";
@@ -518,6 +526,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		95F9367E28D7FD03000764FD /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		95F9368128D7FD3D000764FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -540,6 +564,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 95E673D628BEFF8800A42B2A /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		95F9367F28D7FD03000764FD /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95F9367E28D7FD03000764FD /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+		95F9368228D7FD3D000764FD /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95F9368128D7FD3D000764FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
